@@ -1,0 +1,55 @@
+
+
+
+We have these inputs:
+	1. Teacher checking in
+	2. Students checking in
+	3. Teacher checking out
+
+Data carried with an input entry:
+	1. ID number
+	2. Time			?
+	3. Sender device ID (to determine the auditorium)
+	4. Action		?	(For teachers - start and close the session, for students - add themselves into active session)
+
+Data that can be sent:
+	1. Status (Session open\close, check in, error (no session open, or some other error))
+
+What happens:
+	1. Teacher checks in
+	2. RPi sends "ID at TIME action START, device is DEVICE"
+	3. Server receives the entry
+	4. DEVICE is validated (if not - send back error), TIME is checked (if grossly wrong, put warning into log and proceed with system time)
+	6. ID is checked, whether it is a teacher or a student
+	5. ACTION is checked
+	5.1. If student, check for an open session
+	5.1.1. If none are open - send error
+	5.1.2. If one is open - send success and add ID to the session
+	5.2. If teacher, open\close a session
+
+Session:
+	Session lasts for 1h 35m
+	Session live times are tracked
+	Session contains:
+		1. Time, place, teacher ID
+		2. Student IDs
+	If a session lvies for too long, it is closed and logged, as it wasn't closed by teacher
+
+Databases:
+	1. Sessions
+		1.1. ID (key)
+		1.2. Time of creation
+		1.3. Teacher
+		1.4. Students
+		1.5. Time of termination
+		1.6. Location
+		1.7. Reason for termination		? (probably unneeded)
+	2. Person IDs
+		2.1. ID (key)
+		2.2. Status
+		2.2.1. Teacher
+		2.2.2. Student
+	3. Device IDs
+		3.1. ID (key)
+		3.2. Location
+
