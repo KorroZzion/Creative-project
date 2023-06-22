@@ -6,6 +6,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.FrameLayout
+import android.widget.Toast
 import com.example.barcodescanner.R
 import com.example.barcodescanner.extension.formatOrNull
 import com.github.florent37.singledateandtimepicker.dialog.SingleDateAndTimePickerDialog

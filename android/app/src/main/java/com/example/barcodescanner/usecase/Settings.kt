@@ -134,8 +134,8 @@ class Settings(private val context: Context) {
 
     fun setFormatSelected(format: BarcodeFormat, isSelected: Boolean) {
         sharedPreferences.edit()
-            .putBoolean(format.name, isSelected)
-            .apply()
+                .putBoolean(format.name, isSelected)
+                .apply()
     }
 
     fun reapplyTheme() {
@@ -148,8 +148,8 @@ class Settings(private val context: Context) {
 
     private fun set(key: Key, value: Int) {
         return sharedPreferences.edit()
-            .putInt(key.name, value)
-            .apply()
+                .putInt(key.name, value)
+                .apply()
     }
 
     private fun get(key: Key, default: Boolean = false): Boolean {
@@ -158,8 +158,8 @@ class Settings(private val context: Context) {
 
     private fun set(key: Key, value: Boolean) {
         sharedPreferences.edit()
-            .putBoolean(key.name, value)
-            .apply()
+                .putBoolean(key.name, value)
+                .apply()
     }
 
     private fun get(key: Key, default: SearchEngine = SearchEngine.NONE): SearchEngine {
@@ -169,8 +169,8 @@ class Settings(private val context: Context) {
 
     private fun set(key: Key, value: SearchEngine) {
         sharedPreferences.edit()
-            .putString(key.name, value.name)
-            .apply()
+                .putString(key.name, value.name)
+                .apply()
     }
 
     private fun applyTheme(theme: Int) {

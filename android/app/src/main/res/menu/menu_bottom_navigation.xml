@@ -9,5 +9,6 @@
         android:id="@+id/item_settings"
         android:icon="@drawable/ic_settings"
         android:title="@string/activity_bottom_tabs_settings_tab"
+        android:visible="false"
         />
 </menu>

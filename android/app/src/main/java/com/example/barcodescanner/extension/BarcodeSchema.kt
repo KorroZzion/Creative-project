@@ -2,7 +2,6 @@ package com.example.barcodescanner.extension
 
 import com.example.barcodescanner.R
 import com.example.barcodescanner.model.schema.BarcodeSchema
-
 fun BarcodeSchema.toImageId(): Int? {
     return when (this) {
         BarcodeSchema.BOOKMARK -> R.drawable.ic_bookmark
